@@ -1,7 +1,11 @@
+
 package excepciones;
 
-public class EntidadNoEncontradaException extends RuntimeException {
-    public EntidadNoEncontradaException(String message) {
-        super(message);
+public class EntidadNoEncontradaException
+        extends ProtectoraException {
+
+    public EntidadNoEncontradaException(String mensaje) {
+        super(mensaje);
     }
 }
+

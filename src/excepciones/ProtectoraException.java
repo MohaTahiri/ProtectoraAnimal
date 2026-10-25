@@ -1,7 +1,14 @@
+
 package excepciones;
 
-public class ProtectoraException extends RuntimeException {
-    public ProtectoraException(String message) {
-        super(message);
+public class ProtectoraException extends Exception {
+
+    public ProtectoraException(String mensaje) {
+        super(mensaje);
+    }
+
+    public ProtectoraException(String mensaje, Throwable causa) {
+        super(mensaje, causa);
     }
 }
+
