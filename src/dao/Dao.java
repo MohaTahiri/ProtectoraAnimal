@@ -7,14 +7,13 @@ import java.util.Optional;
 
 public interface Dao<T> {
 
-    void crear(T entidad) throws ProtectoraException;
+    public void crear(T entidad) throws ProtectoraException;
 
-    Optional<T> buscarPorId(String id)
-            throws ProtectoraException;
+    public Optional<T> buscarPorId(String id) throws ProtectoraException;
 
-    List<T> listarTodos() throws ProtectoraException;
+    public List<T> listarTodos() throws ProtectoraException;
 
-    void actualizar(T entidad) throws ProtectoraException;
+    public void actualizar(T entidad) throws ProtectoraException;
 
-    void eliminar(String id) throws ProtectoraException;
+    public void eliminar(String id) throws ProtectoraException;
 }

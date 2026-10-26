@@ -21,17 +21,12 @@ public class DaoJson<T> implements Dao<T> {
     private final Function<T, String> obtenerId;
     private final Type tipoLista;
 
-    private final Gson gson =
-            new GsonBuilder().setPrettyPrinting().create();
+    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public DaoJson(String ruta, Class<T> clase,
-                   Function<T, String> obtenerId) {
+    public DaoJson(String ruta, Class<T> clase, Function<T, String> obtenerId) {
         this.archivo = Paths.get(ruta);
         this.obtenerId = obtenerId;
-
-        this.tipoLista = TypeToken
-                .getParameterized(List.class, clase)
-                .getType();
+        this.tipoLista = TypeToken.getParameterized(List.class, clase).getType();
     }
 
     protected List<T> leer() throws ProtectoraException {
@@ -40,8 +35,7 @@ public class DaoJson<T> implements Dao<T> {
                 return new ArrayList<>();
             }
 
-            String json = Files.readString(
-                    archivo, StandardCharsets.UTF_8);
+            String json = Files.readString(archivo, StandardCharsets.UTF_8);
 
             if (json.isBlank()) {
                 return new ArrayList<>();
@@ -49,13 +43,10 @@ public class DaoJson<T> implements Dao<T> {
 
             List<T> lista = gson.fromJson(json, tipoLista);
 
-            return lista == null
-                    ? new ArrayList<>()
-                    : lista;
+            return lista == null ? new ArrayList<>() : lista;
 
         } catch (IOException | RuntimeException e) {
-            throw new ProtectoraException(
-                    "Error al leer el archivo JSON", e);
+            throw new ProtectoraException("Error al leer el archivo JSON", e);
         }
     }
 
@@ -68,27 +59,17 @@ public class DaoJson<T> implements Dao<T> {
                 Files.createDirectories(carpeta);
             }
 
-            Files.writeString(
-                    archivo,
-                    gson.toJson(lista, tipoLista),
-                    StandardCharsets.UTF_8,
-                    StandardOpenOption.CREATE,
-                    StandardOpenOption.TRUNCATE_EXISTING
+            Files.writeString(archivo, gson.toJson(lista, tipoLista), StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING
             );
 
         } catch (IOException e) {
-            throw new ProtectoraException(
-                    "Error al guardar el archivo JSON", e);
+            throw new ProtectoraException("Error al guardar el archivo JSON", e);
         }
     }
 
-    private void validar(T entidad)
-            throws DatosInvalidosException {
-        if (entidad == null
-                || obtenerId.apply(entidad) == null
-                || obtenerId.apply(entidad).isBlank()) {
-            throw new DatosInvalidosException(
-                    "La entidad y su ID son obligatorios");
+    private void validar(T entidad) throws DatosInvalidosException {
+        if (entidad == null || obtenerId.apply(entidad) == null || obtenerId.apply(entidad).isBlank()) {
+            throw new DatosInvalidosException("La entidad y su ID son obligatorios");
         }
     }
 
@@ -101,8 +82,7 @@ public class DaoJson<T> implements Dao<T> {
 
         for (T elemento : lista) {
             if (id.equals(obtenerId.apply(elemento))) {
-                throw new DatosInvalidosException(
-                        "Ya existe una entidad con ese ID");
+                throw new DatosInvalidosException("Ya existe una entidad con ese ID");
             }
         }
 
@@ -111,54 +91,41 @@ public class DaoJson<T> implements Dao<T> {
     }
 
     @Override
-    public Optional<T> buscarPorId(String id)
-            throws ProtectoraException {
-        return leer().stream()
-                .filter(e -> Objects.equals(
-                        obtenerId.apply(e), id))
-                .findFirst();
+    public Optional<T> buscarPorId(String id) throws ProtectoraException {
+        return leer().stream().filter(e -> Objects.equals(obtenerId.apply(e), id)).findFirst();
     }
 
     @Override
-    public List<T> listarTodos()
-            throws ProtectoraException {
+    public List<T> listarTodos() throws ProtectoraException {
         return leer();
     }
 
     @Override
-    public void actualizar(T entidad)
-            throws ProtectoraException {
+    public void actualizar(T entidad) throws ProtectoraException {
         validar(entidad);
-
         List<T> lista = leer();
         String id = obtenerId.apply(entidad);
 
         for (int i = 0; i < lista.size(); i++) {
-            if (Objects.equals(
-                    obtenerId.apply(lista.get(i)), id)) {
+            if (Objects.equals(obtenerId.apply(lista.get(i)), id)) {
                 lista.set(i, entidad);
                 guardar(lista);
                 return;
             }
         }
 
-        throw new EntidadNoEncontradaException(
-                "No existe una entidad con ese ID");
+        throw new EntidadNoEncontradaException("No existe una entidad con ese ID");
     }
 
     @Override
-    public void eliminar(String id)
-            throws ProtectoraException {
+    public void eliminar(String id) throws ProtectoraException {
         List<T> lista = leer();
 
-        boolean eliminado = lista.removeIf(
-                e -> Objects.equals(obtenerId.apply(e), id));
+        boolean eliminado = lista.removeIf(e -> Objects.equals(obtenerId.apply(e), id));
 
         if (!eliminado) {
-            throw new EntidadNoEncontradaException(
-                    "No existe una entidad con ese ID");
+            throw new EntidadNoEncontradaException("No existe una entidad con ese ID");
         }
-
         guardar(lista);
     }
 }

@@ -9,6 +9,5 @@ import java.util.Optional;
 
 public interface AdoptanteDao extends Dao<Adoptante> {
 
-    List<Adoptante> buscarPorEmail(String email)
-            throws ProtectoraException;
+    public List<Adoptante> buscarPorEmail(String email) throws ProtectoraException;
 }

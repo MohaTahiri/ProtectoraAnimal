@@ -12,9 +12,7 @@ public class Adopcion {
     public Adopcion() {
     }
 
-    public Adopcion(String id, String animalId,
-                    String adoptanteId, String fecha,
-                    String observaciones) {
+    public Adopcion(String id, String animalId, String adoptanteId, String fecha, String observaciones) {
         this.id = id;
         this.animalId = animalId;
         this.adoptanteId = adoptanteId;
@@ -64,9 +62,6 @@ public class Adopcion {
 
     @Override
     public String toString() {
-        return "Adopción " + id
-                + ", animal: " + animalId
-                + ", adoptante: " + adoptanteId
-                + ", fecha: " + fecha;
+        return "Adopción " + id + ", animal: " + animalId + ", adoptante: " + adoptanteId + ", fecha: " + fecha;
     }
 }

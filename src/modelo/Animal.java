@@ -1,7 +1,7 @@
 
 package modelo;
 
-public class Animal {
+public abstract class Animal {
 
     private String id;
     private String nombre;

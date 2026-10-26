@@ -18,27 +18,18 @@ public class AnimalDaoJson
     }
 
     @Override
-    public List<Animal> buscarPorEspecie(Especie especie)
-            throws ProtectoraException {
-        return listarTodos().stream()
-                .filter(a -> a.getEspecie() == especie)
-                .toList();
+    public List<Animal> buscarPorEspecie(Especie especie) throws ProtectoraException {
+        return listarTodos().stream().filter(a -> a.getEspecie() == especie).toList();
     }
 
     @Override
-    public List<Animal> listarDisponibles()
-            throws ProtectoraException {
-        return listarTodos().stream()
-                .filter(Animal::isDisponible)
-                .toList();
+    public List<Animal> listarDisponibles() throws ProtectoraException {
+        return listarTodos().stream().filter(Animal::isDisponible).toList();
     }
 
     @Override
-    public List<Animal> buscarPorEstadoSalud(
-            EstadoSalud estado) throws ProtectoraException {
-        return listarTodos().stream()
-                .filter(a -> a.getEstadoSalud() == estado)
-                .toList();
+    public List<Animal> buscarPorEstadoSalud(EstadoSalud estado) throws ProtectoraException {
+        return listarTodos().stream().filter(a -> a.getEstadoSalud() == estado).toList();
     }
 }
 

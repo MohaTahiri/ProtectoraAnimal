@@ -11,8 +11,7 @@ public class Adoptante {
     public Adoptante() {
     }
 
-    public Adoptante(String id, String nombre,
-                     String email, String telefono) {
+    public Adoptante(String id, String nombre, String email, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
@@ -53,9 +52,7 @@ public class Adoptante {
 
     @Override
     public String toString() {
-        return id + " - " + nombre
-                + ", email: " + email
-                + ", teléfono: " + telefono;
+        return id + " - " + nombre + ", email: " + email + ", teléfono: " + telefono;
     }
 }
 
