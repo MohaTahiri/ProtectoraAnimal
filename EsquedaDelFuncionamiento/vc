@@ -1,0 +1,12 @@
+Lo que pide la práctica
+
+Una aplicación con datos persistentes y una interfaz DAO. Está en Dao, AnimalDao, AdoptanteDao y AdopcionDao.
+
+
+Al menos tres operaciones además del CRUD básico. Hay seis: buscarPorEspecie, listarDisponibles, buscarPorEstadoSalud,
+buscarPorEmail, listarPorAdoptante y listarPorAnimal.
+
+Dos llamadas al sistema fuera del DAO, como renombrar un directorio o mover un fichero. Son renombrarDirectorio
+y moverFichero de SistemaFicheros.
+
+Una implementación del DAO con una tecnología JSON, que es DaoJson con Gson y las tres clases ...DaoJson.

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "A1",
+    "nombre": "Toby",
+    "especie": "PERRO",
+    "edad": 3,
+    "estadoSalud": "SANO",
+    "tipoRegistro": "RESCATADO",
+    "disponible": false
+  },
+  {
+    "id": "A2",
+    "nombre": "Misi",
+    "especie": "GATO",
+    "edad": 2,
+    "estadoSalud": "SANO",
+    "tipoRegistro": "ENTREGADO_POR_DUENO",
+    "disponible": true
+  }
+]

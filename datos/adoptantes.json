@@ -1,0 +1,14 @@
+[
+  {
+    "id": "P1",
+    "nombre": "Ana Pérez",
+    "email": "ana@correo.com",
+    "telefono": "600111222"
+  },
+  {
+    "id": "P2",
+    "nombre": "Luis Gómez",
+    "email": "luis@correo.com",
+    "telefono": "600333444"
+  }
+]
