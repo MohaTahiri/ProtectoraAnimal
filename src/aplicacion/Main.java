@@ -67,7 +67,7 @@ public class Main {
             Path movido = SistemaFicheros.moverFichero(datos.resolve("adopciones.json"), Path.of("archivo"));
             System.out.println("Fichero movido a: " + movido);
 
-            String nuevoNombre = "archivo_" + System.currentTimeMillis();
+            String nuevoNombre = "carpeta_adopciones";
             Path renombrado = SistemaFicheros.renombrarDirectorio(Path.of("archivo"), nuevoNombre);
             System.out.println("Directorio renombrado a: " + renombrado);
 
