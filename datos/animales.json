@@ -6,7 +6,7 @@
     "edad": 3,
     "estadoSalud": "SANO",
     "tipoRegistro": "RESCATADO",
-    "disponible": false
+    "disponible": true
   },
   {
     "id": "A2",
