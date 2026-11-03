@@ -2,7 +2,7 @@
 package modelo;
 
 public class Animal {
-
+    
     private String id;
     private String nombre;
     private Especie especie;

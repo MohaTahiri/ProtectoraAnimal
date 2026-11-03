@@ -38,8 +38,10 @@ public class Main {
             animales.crear(new Animal("A1", "Toby", Especie.PERRO, 3, EstadoSalud.SANO, TipoRegistro.RESCATADO, true));
             animales.crear(new Animal("A2", "Misi", Especie.GATO, 2, EstadoSalud.EN_TRATAMIENTO, TipoRegistro.ENTREGADO_POR_DUENO, true));
             animales.crear(new Animal("A3", "Luna", Especie.PERRO, 5, EstadoSalud.SANO, TipoRegistro.NACIDO_EN_PROTECTORA, true));
+
             adoptantes.crear(new Adoptante("P1", "Ana Pérez", "ana@correo.com", "600111222"));
             adoptantes.crear(new Adoptante("P2", "Luis Gómez", "luis@correo.com", "600333444"));
+
             adopciones.crear(new Adopcion("D1", "A1", "P1", "2026-10-26", "Primera adopción"));
             adopciones.crear(new Adopcion("D2", "A3", "P1", "2026-10-27", "Segunda adopción"));
             animales.listarTodos().forEach(System.out::println);
@@ -59,7 +61,7 @@ public class Main {
             System.out.println("Adopciones de A1: " + adopciones.listarPorAnimal("A1").size());
 
             System.out.println("\n=== DELETE ===");
-            animales.eliminar("A3");
+            animales.eliminar("A2");
             System.out.println("Animales restantes: " + animales.listarTodos().size());
 
             // ---- Operaciones de sistema (fuera de la interfaz DAO) ----

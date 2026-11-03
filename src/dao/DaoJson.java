@@ -37,6 +37,8 @@ public class DaoJson<T> implements Dao<T> {
     public DaoJson(Path archivo, Class<T> clase, Function<T, String> obtenerId) {
         this.archivo = archivo;
         this.obtenerId = obtenerId;
+
+        // Aqui, mete un comentario de GPT para explicar de donde sale esta linea
         this.tipoLista = TypeToken.getParameterized(List.class, clase).getType();
     }
 

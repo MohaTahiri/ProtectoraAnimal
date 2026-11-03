@@ -27,10 +27,10 @@ public class SistemaFicheros {
             throw new IOException("No existe el directorio: " + directorio);
         }
         Path destino = directorio.resolveSibling(nuevoNombre);
-        if (Files.exists(destino)) {
-            throw new IOException("Ya existe: " + destino);
-        }
-        return Files.move(directorio, destino);
+//        if (Files.exists(destino)) {
+//            throw new IOException("Ya existe: " + destino);
+//        }
+        return Files.move(directorio, destino, StandardCopyOption.REPLACE_EXISTING);
     }
 
     /**
