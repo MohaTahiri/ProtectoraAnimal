@@ -1,7 +1,9 @@
+
 package excepciones;
 
-public class DatosInvalidosException extends RuntimeException {
-    public DatosInvalidosException(String message) {
-        super(message);
+public class DatosInvalidosException extends ProtectoraException {
+
+    public DatosInvalidosException(String mensaje) {
+        super(mensaje);
     }
 }
